@@ -9,12 +9,12 @@ const Article = props => {
         <div className="card">
           <img src={!img ? news : img} className="card-img-top card-img" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{desc}</p>
-            <a href={link} className="btn btn-primary">
+            <h5 className="card-title title">{title}</h5>
+            <p className="card-text desc">{desc}</p>
+            <a href={link} className="btn btn-primary article-btn">
               News Article
             </a>
-            <p>Source: {source}</p>
+            <p className="source">Source: {source}</p>
           </div>
         </div>
       </div>

@@ -88,7 +88,7 @@ a:active {
   margin-top: 1rem;
   font-size: 2.2rem;
   font-weight: 600;
-   color: #ca1f1f;
+  color: #ca1f1f;
 }
 
 .card {
@@ -101,4 +101,22 @@ a:active {
 .card-img {
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 1.3rem;
+}
+
+.article-btn {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+
+.source {
+  font-size: 1.1rem;
 }
