@@ -5,7 +5,7 @@ import axios from "axios";
 class Articles extends Component {
   state = {
     news: [],
-    pageSize: 50,
+    pageSize: 5,
     loading: true
   };
 
@@ -29,14 +29,14 @@ class Articles extends Component {
     const { loading, news } = this.state;
     return (
       <Fragment>
-        <h2 class="sub-heading top-lead">Top Stories</h2>
+        <h2 className="sub-heading top-lead">Top Stories</h2>
         {loading ? (
           <h1>Loading...</h1>
         ) : (
-          news.map(article => {
+          news.map((article, index) => {
             return (
               <Article
-                key={article.source.id}
+                key={index}
                 title={article.title}
                 link={article.url}
                 img={article.urlToImage}

@@ -32,7 +32,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Fragment>
-        <form class="form" onSubmit={this.onSubmit}>
+        <form className="form" onSubmit={this.onSubmit}>
           <div className="form-group">
             <input
               className="search"
