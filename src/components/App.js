@@ -8,7 +8,7 @@ import TechArts from "./Tech/TechArts";
 import SportsArts from "./Sports/SportsArts";
 import ScienceArts from "./Science/ScienceArts";
 import HealthArts from "./Health/HealthArts";
-
+import EntertainmentArts from "./Entertainment/EntertainmentArts";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -34,6 +34,11 @@ class App extends Component {
                   <Route exact path="/tech" component={TechArts} />
                   <Route exact path="/sports" component={SportsArts} />
                   <Route exact path="/science" component={ScienceArts} />
+                  <Route
+                    exact
+                    path="/entertainment"
+                    component={EntertainmentArts}
+                  />
                 </Switch>
               </div>
               <Footer />
