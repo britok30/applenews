@@ -8,6 +8,7 @@ import TechArts from "./Tech/TechArts";
 import SportsArts from "./Sports/SportsArts";
 import ScienceArts from "./Science/ScienceArts";
 import HealthArts from "./Health/HealthArts";
+
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
