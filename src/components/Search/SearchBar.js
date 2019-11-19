@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
-import Search from "./Search";
 import axios from "axios";
 
 class SearchBar extends Component {
@@ -13,7 +12,7 @@ class SearchBar extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const { pageSize, searchTerm } = this.state;
+    const { pageSize, searchTerm, news } = this.state;
     axios
       .get(
         `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
@@ -25,8 +24,6 @@ class SearchBar extends Component {
         });
       })
       .catch(err => console.log(err));
-
-    return <Redirect to="/results" component={Search} />;
   };
 
   onChange = e => {
@@ -34,6 +31,10 @@ class SearchBar extends Component {
   };
 
   render() {
+    if (this.state.news.length > 0) {
+      return <Redirect to="/search" />;
+    }
+
     return (
       <Fragment>
         <form className="form" onSubmit={this.onSubmit}>

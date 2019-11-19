@@ -3,8 +3,10 @@ import Navbar from "./Navbar";
 import SearchBar from "./Search/SearchBar";
 import SideBar from "./SideBar";
 import Articles from "./TopArticles/Articles";
+import Searches from "./Search/Searches";
 import Footer from "./Footer";
-import { BrowserRouter as Router } from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "../App.css";
 
 class App extends Component {
@@ -24,7 +26,10 @@ class App extends Component {
                 <SideBar />
               </div>
               <div className="col-md-10">
-                <Articles />
+                <Switch>
+                  <Route exact path="/" component={Articles} />
+                  <Route exact path="/search" component={Searches} />
+                </Switch>
               </div>
               <Footer />
             </div>
