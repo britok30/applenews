@@ -17,7 +17,7 @@ body {
 /* NAVBAR */
 
 .navbar {
-    border-bottom: .3px solid rgba(173, 173, 173, 0.808);
+  border-bottom: 0.3px solid rgba(173, 173, 173, 0.808);
 }
 
 .logo {
@@ -30,11 +30,32 @@ body {
 }
 
 .navbar-brand {
-    color: #cecece !important;
+  color: #cecece !important;
 }
 
 .date,
 .navbar-brand {
   font-size: 3.2rem;
   font-weight: 800;
+}
+
+/* SEARCHBAR */
+
+.form {
+  margin: 3rem auto;
+  width: 700px;
+}
+
+.search {
+  margin: auto;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: 5px;
+  padding: 1.2rem;
+}
+
+.label {
+  color: #fff;
+  font-size: 1.5rem;
 }

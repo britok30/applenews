@@ -1,17 +1,19 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-class TopNews extends Component {
+class Articles extends Component {
   state = {
-    news: []
+    news: [],
+    pageSize: 10
   };
 
   componentDidMount() {
+    const { pageSize } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=10${process.env.API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&${process.env.API_KEY}`
       )
-       .then(res => {
+      .then(res => {
         console.log(res.data.articles);
         this.setState({
           news: res.data.articles
@@ -22,9 +24,9 @@ class TopNews extends Component {
 
   render() {
     return <Fragment>
-        
+      
     </Fragment>;
   }
 }
 
-export default TopNews;
+export default Articles;

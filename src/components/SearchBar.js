@@ -3,13 +3,16 @@ import axios from "axios";
 
 class SearchBar extends Component {
   state = {
-    searchTerm: ""
+    searchTerm: "",
+    pageSize: 50
   };
 
-  componentDidMount() {
+  onSubmit = e => {
+    e.preventDefault();
+    const { pageSize } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${this.searchTerm}&apiKey=${process.env.API_KEY}&pageSize=50`
+        `https://newsapi.org/v2/everything?q=${this.searchTerm}&apiKey=${process.env.API_KEY}&pageSize=${pageSize}`
       )
       .then(res => {
         console.log(res.data.articles);
@@ -18,18 +21,28 @@ class SearchBar extends Component {
         });
       })
       .catch(err => console.log(err));
-  }
+  };
 
-  onSubmit = (e) => {
-    e.preventDefault();
+  onChange = e => {
+    this.setState({ searchTerm: e.target.value });
   };
 
   render() {
     return (
       <Fragment>
-        <form onSubmit={this.onSubmit}>
-            <label htmlFor="name"></label>
-            <input type="text" name="name" />
+        <form class="form" onSubmit={this.onSubmit}>
+          <div className="form-group">
+            <label className="label" htmlFor="name">
+              Search
+            </label>
+            <input
+              className="search"
+              type="text"
+              name="name"
+              placeholder="Search News"
+              onChange={this.onChange}
+            />
+          </div>
         </form>
       </Fragment>
     );
