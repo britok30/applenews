@@ -5,7 +5,7 @@ import axios from "axios";
 class Articles extends Component {
   state = {
     news: [],
-    pageSize: 6,
+    pageSize: 20,
     loading: true
   };
 
