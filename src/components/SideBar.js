@@ -23,6 +23,11 @@ const SideBar = () => {
         <li>
           <a href="#">Technology</a>
         </li>
+        <li>
+          <a className="api" href="https://newsapi.org/">
+            News API
+          </a>
+        </li>
       </ul>
     </div>
   );

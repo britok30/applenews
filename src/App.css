@@ -120,3 +120,8 @@ a:active {
 .source {
   font-size: 1.1rem;
 }
+
+.api {
+  color: #ca1f1f !important;
+  font-weight: 600;
+}
