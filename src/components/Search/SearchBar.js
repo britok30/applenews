@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from "react-router-dom";
+import Search from "./Search";
 import axios from "axios";
 
 class SearchBar extends Component {
@@ -23,6 +25,8 @@ class SearchBar extends Component {
         });
       })
       .catch(err => console.log(err));
+
+    return <Redirect to="/results" component={Search} />;
   };
 
   onChange = e => {
