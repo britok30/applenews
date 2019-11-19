@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import SearchBar from "./Search/SearchBar";
 import SideBar from "./SideBar";
 import Articles from "./TopArticles/Articles";
+import Footer from "./Footer";
 import { BrowserRouter as Router } from "react-router-dom";
 import "../App.css";
 
@@ -25,6 +26,7 @@ class App extends Component {
               <div className="col-md-10">
                 <Articles />
               </div>
+              <Footer />
             </div>
           </div>
         </Fragment>
