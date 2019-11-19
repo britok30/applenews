@@ -49,7 +49,7 @@ class SearchBar extends Component {
           </div>
 
           <div className="row">
-            <h2 className="sub-heading top-lead">Your Search</h2>
+            <h2 className="sub-heading top-lead">Search</h2>
           </div>
           <div className="row">
             {loading ? (

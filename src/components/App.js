@@ -3,11 +3,11 @@ import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 import Articles from "./TopArticles/Articles";
 import SearchBar from "./Search/SearchBar";
-import Business from "./Business/Business";
-import Tech from "./Tech/Tech";
-import Sports from "./Sports/Sports";
-import Science from "./Science/Science";
-import Health from "./HealtH/Health";
+import BusinessArts from "./Business/BusinessArts";
+import TechArts from "./Tech/TechArts";
+import SportsArts from "./Sports/SportsArts";
+import ScienceArts from "./Science/ScienceArts";
+import HealthArts from "./Health/HealthArts";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -28,11 +28,11 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Articles} />
                   <Route exact path="/search" component={SearchBar} />
-                  <Route exact path="/business" component={Business} />
-                  <Route exact path="/health" component={Health} />
-                  <Route exact path="/tech" component={Tech} />
-                  <Route exact path="/sports" component={Sports} />
-                  <Route exact path="/science" component={Science} />
+                  <Route exact path="/business" component={BusinessArts} />
+                  <Route exact path="/health" component={HealthArts} />
+                  <Route exact path="/tech" component={TechArts} />
+                  <Route exact path="/sports" component={SportsArts} />
+                  <Route exact path="/science" component={ScienceArts} />
                 </Switch>
               </div>
               <Footer />
