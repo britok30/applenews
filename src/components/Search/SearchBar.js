@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from "react";
-import { Redirect } from "react-router-dom";
+import Search from "./Search";
 import axios from "axios";
 
 class SearchBar extends Component {
   state = {
     searchTerm: "",
     pageSize: 20,
+    loading: true,
     news: []
   };
 
   onSubmit = e => {
     e.preventDefault();
 
-    const { pageSize, searchTerm, news } = this.state;
+    const { pageSize, searchTerm } = this.state;
     axios
       .get(
         `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
@@ -20,7 +21,8 @@ class SearchBar extends Component {
       .then(res => {
         console.log(res.data.articles);
         this.setState({
-          news: res.data.articles
+          news: res.data.articles,
+          loading: false
         });
       })
       .catch(err => console.log(err));
@@ -31,9 +33,7 @@ class SearchBar extends Component {
   };
 
   render() {
-    if (this.state.news.length > 0) {
-      return <Redirect to="/search" />;
-    }
+    const { loading, news } = this.state;
 
     return (
       <Fragment>
@@ -46,6 +46,28 @@ class SearchBar extends Component {
               placeholder="Search News"
               onChange={this.onChange}
             />
+          </div>
+
+          <div className="row">
+            <h2 className="sub-heading top-lead">Your Search</h2>
+          </div>
+          <div className="row">
+            {loading ? (
+              <h1>Please enter your search.</h1>
+            ) : (
+              news.map((article, index) => {
+                return (
+                  <Search
+                    key={index}
+                    title={article.title}
+                    link={article.url}
+                    img={article.urlToImage}
+                    desc={article.description}
+                    source={article.source.name}
+                  />
+                );
+              })
+            )}
           </div>
         </form>
       </Fragment>

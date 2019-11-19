@@ -58,11 +58,6 @@ a:active {
 
 /* SEARCHBAR */
 
-.form {
-  margin: 3rem auto;
-  width: 700px;
-}
-
 .search {
   margin: auto;
   width: 100%;
@@ -82,6 +77,10 @@ a:active {
   font-size: 6rem;
   font-weight: 800;
   color: #ca1f1f;
+}
+
+.top-level {
+  margin-top: 3rem;
 }
 
 .newshead {

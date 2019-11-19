@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
 import Navbar from "./Navbar";
-import SearchBar from "./Search/SearchBar";
 import SideBar from "./SideBar";
 import Articles from "./TopArticles/Articles";
-import Searches from "./Search/Searches";
+import SearchBar from "./Search/SearchBar";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -16,19 +15,14 @@ class App extends Component {
         <Fragment>
           <div className="container">
             <Navbar />
-            <div className="row">
-              <div className="col-md-12">
-                <SearchBar />
-              </div>
-            </div>
-            <div className="row">
+            <div className="row top-level">
               <div className="col-md-2">
                 <SideBar />
               </div>
               <div className="col-md-10">
                 <Switch>
                   <Route exact path="/" component={Articles} />
-                  <Route exact path="/search" component={Searches} />
+                  <Route exact path="/search" component={SearchBar} />
                 </Switch>
               </div>
               <Footer />

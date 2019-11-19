@@ -7,6 +7,9 @@ const SideBar = () => {
       <h3 className="newshead">Apple News</h3>
       <ul>
         <li>
+          <Link to="/search">Search News</Link>
+        </li>
+        <li>
           <Link to="/business">Business</Link>
         </li>
         <li>
