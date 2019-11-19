@@ -26,23 +26,26 @@ class Articles extends Component {
   }
 
   render() {
+    const { loading, news } = this.state;
     return (
       <Fragment>
         <h2 class="sub-heading top-lead">Top Stories</h2>
-        if (loading){" "}
-        {<h1 style={{ fontSize: "5rem", color: "#fff" }}>Loading...</h1>} else
-        {news.map(new => {
-          return (
-            <Article
-              key={new.source.id}
-              title={new.title}
-              url={new.url}
-              image={new.urlToImage}
-              desc={new.description}
-              source={new.source.name}
-            />
-          );
-        })}
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          news.map(article => {
+            return (
+              <Article
+                key={article.source.id}
+                title={article.title}
+                link={article.url}
+                img={article.urlToImage}
+                desc={article.description}
+                source={article.source.name}
+              />
+            );
+          })
+        )}
       </Fragment>
     );
   }
