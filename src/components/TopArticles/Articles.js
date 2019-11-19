@@ -4,14 +4,14 @@ import axios from "axios";
 class Articles extends Component {
   state = {
     news: [],
-    pageSize: 10
+    pageSize: 20
   };
 
   componentDidMount() {
     const { pageSize } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&${process.env.API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
       )
       .then(res => {
         console.log(res.data.articles);

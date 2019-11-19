@@ -12,7 +12,7 @@ class SearchBar extends Component {
     const { pageSize } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${this.searchTerm}&apiKey=${process.env.API_KEY}&pageSize=${pageSize}`
+        `https://newsapi.org/v2/everything?q=${this.searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
       )
       .then(res => {
         console.log(res.data.articles);

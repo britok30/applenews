@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Navbar from "./Navbar";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 import Articles from "./TopArticles/Articles";
 import "../App.css";
 
