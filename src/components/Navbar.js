@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark ">
       <Link className="navbar-brand" to="/">
         <img className="logo" src={logo} alt="" />
-        News
+        News<span className="js">.js</span>
         <p className="date">{date}</p>
       </Link>
     </nav>

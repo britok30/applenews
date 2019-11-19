@@ -50,6 +50,10 @@ a:active {
   color: #cecece !important;
 }
 
+.js {
+  font-weight: 200;
+}
+
 .date,
 .navbar-brand {
   font-size: 3.2rem;
@@ -86,8 +90,7 @@ a:active {
 .newshead {
   margin-top: 1rem;
   font-size: 2.2rem;
-  font-weight: 600;
-  color: #ca1f1f;
+  font-weight: 600
 }
 
 .card {
@@ -132,4 +135,9 @@ a:active {
   font-size: 1.3rem;
   font-weight: 800;
   text-align: center;
+}
+
+.twitter {
+  color: #00aced !important;
+  font-weight: 600;
 }

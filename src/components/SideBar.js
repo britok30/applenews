@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
     <div>
-      <h3 className="newshead">Apple News</h3>
+      <h3 className="newshead">
+        <Link to="/">
+          <i class="icon ion-logo-apple"></i> Apple News
+        </Link>
+      </h3>
       <ul>
         <li>
           <Link to="/search">Search News</Link>
@@ -29,12 +33,22 @@ const SideBar = () => {
         </li>
         <li>
           <a
+            className="twitter"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://twitter.com/AppleNews?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+          >
+            <i class="icon ion-logo-twitter"></i> Twitter
+          </a>
+        </li>
+        <li>
+          <a
             className="api"
             target="_blank"
             rel="noreferrer noopener"
             href="https://newsapi.org/"
           >
-            News API
+            <i class="icon ion-logo-designernews"></i> News API
           </a>
         </li>
       </ul>
