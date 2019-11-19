@@ -7,7 +7,7 @@ const SideBar = () => {
       <h3 className="newshead">Apple News</h3>
       <ul>
         <li>
-          <Link to="/business">Business></Link>
+          <Link to="/business">Business</Link>
         </li>
         <li>
           <Link to="/entertainment">Entertainment</Link>
@@ -25,7 +25,12 @@ const SideBar = () => {
           <Link href="/tech">Technology</Link>
         </li>
         <li>
-          <a className="api" href="https://newsapi.org/">
+          <a
+            className="api"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://newsapi.org/"
+          >
             News API
           </a>
         </li>
