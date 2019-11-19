@@ -4,15 +4,17 @@ import axios from "axios";
 class SearchBar extends Component {
   state = {
     searchTerm: "",
-    pageSize: 50
+    pageSize: 50,
+    news: []
   };
 
   onSubmit = e => {
     e.preventDefault();
-    const { pageSize } = this.state;
+
+    const { pageSize, searchTerm } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=${this.searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
+        `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
       )
       .then(res => {
         console.log(res.data.articles);
@@ -32,9 +34,6 @@ class SearchBar extends Component {
       <Fragment>
         <form class="form" onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label className="label" htmlFor="name">
-              Search
-            </label>
             <input
               className="search"
               type="text"

@@ -1,10 +1,12 @@
 import React, { Component, Fragment } from "react";
+import Article from "./Article";
 import axios from "axios";
 
 class Articles extends Component {
   state = {
     news: [],
-    pageSize: 20
+    pageSize: 50,
+    loading: true
   };
 
   componentDidMount() {
@@ -16,16 +18,33 @@ class Articles extends Component {
       .then(res => {
         console.log(res.data.articles);
         this.setState({
-          news: res.data.articles
+          news: res.data.articles,
+          loading: false
         });
       })
       .catch(err => console.log(err));
   }
 
   render() {
-    return <Fragment>
-      
-    </Fragment>;
+    return (
+      <Fragment>
+        <h2 class="sub-heading top-lead">Top Stories</h2>
+        if (loading){" "}
+        {<h1 style={{ fontSize: "5rem", color: "#fff" }}>Loading...</h1>} else
+        {news.map(new => {
+          return (
+            <Article
+              key={new.source.id}
+              title={new.title}
+              url={new.url}
+              image={new.urlToImage}
+              desc={new.description}
+              source={new.source.name}
+            />
+          );
+        })}
+      </Fragment>
+    );
   }
 }
 

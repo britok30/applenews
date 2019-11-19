@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Navbar from "./Navbar";
 import SearchBar from "./Search/SearchBar";
+import SideBar from "./SideBar";
 import Articles from "./TopArticles/Articles";
 import "../App.css";
 
@@ -16,7 +17,12 @@ class App extends Component {
             </div>
           </div>
           <div className="row">
-            <Articles />
+            <div className="col-md-2">
+              <SideBar />
+            </div>
+            <div className="col-md-10">
+              <Articles />
+            </div>
           </div>
         </div>
       </Fragment>
