@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
@@ -10,19 +10,19 @@ const SideBar = () => {
           <Link to="/business">Business></Link>
         </li>
         <li>
-          <a href="#">Entertainment</a>
+          <Link to="/entertainment">Entertainment</Link>
         </li>
         <li>
-          <a href="#">Health</a>
+          <Link to="/health">Health</Link>
         </li>
         <li>
-          <a href="#">Science</a>
+          <Link to="/science">Science</Link>
         </li>
         <li>
-          <a href="#">Sports</a>
+          <Link to="/sports">Sports</Link>
         </li>
         <li>
-          <a href="#">Technology</a>
+          <Link href="/tech">Technology</Link>
         </li>
         <li>
           <a className="api" href="https://newsapi.org/">
