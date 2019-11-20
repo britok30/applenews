@@ -141,3 +141,13 @@ a:active {
   color: #00aced !important;
   font-weight: 600;
 }
+
+/* NOT FOUND  */
+.nflead {
+  font-size: 5rem;
+  font-weight: 800;
+}
+
+.nfp {
+  font-size: 2rem;
+}

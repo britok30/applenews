@@ -13,6 +13,8 @@ import EntertainmentArts from "./Entertainment/EntertainmentArts";
 import UKArticles from "./Uk/UKArticles";
 import CANArticles from "./Can/CANArticles";
 import AUSArticles from "./Aus/AUSArticles";
+
+import NotFound from "./NotFound";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -46,6 +48,7 @@ class App extends Component {
                   <Route exact path="/uk" component={UKArticles} />
                   <Route exact path="/can" component={CANArticles} />
                   <Route exact path="/aus" component={AUSArticles} />
+                  <Route component={NotFound} />
                 </Switch>
               </div>
               <Footer />
