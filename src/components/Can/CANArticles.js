@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import CANArticle from "./CANArticle";
+import Spinner from "../../img/spinner.gif";
 import axios from "axios";
 
 class CANArticles extends Component {
@@ -40,7 +41,7 @@ class CANArticles extends Component {
         </div>
         <div className="row">
           {loading ? (
-            <h1>Loading...</h1>
+            <Spinner />
           ) : (
             news.map((article, index) => {
               return (

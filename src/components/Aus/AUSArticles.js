@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import AUSArticle from "./AUSArticle";
+import Spinner from "../../img/spinner.gif";
 import axios from "axios";
 
 class AUSArticles extends Component {
@@ -32,14 +33,15 @@ class AUSArticles extends Component {
       <Fragment>
         <div className="row">
           <h2 className="sub-heading top-lead">
-            Top Stories in AUS <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
-               🇦🇺
+            Top Stories in AUS{" "}
+            <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
+              🇦🇺
             </span>
           </h2>
         </div>
         <div className="row">
           {loading ? (
-            <h1>Loading...</h1>
+            <Spinner />
           ) : (
             news.map((article, index) => {
               return (

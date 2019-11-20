@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Article from "./Article";
 import axios from "axios";
+import Spinner from "../../img/spinner.gif";
 
 class Articles extends Component {
   state = {
@@ -34,7 +35,7 @@ class Articles extends Component {
         </div>
         <div className="row">
           {loading ? (
-            <h1>Loading...</h1>
+            <Spinner />
           ) : (
             news.map((article, index) => {
               return (

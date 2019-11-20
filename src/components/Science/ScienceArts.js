@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Science from "./Science";
+import Spinner from "../../img/spinner.gif";
 import axios from "axios";
 
 class ScienceArts extends Component {
@@ -35,7 +36,7 @@ class ScienceArts extends Component {
         </div>
         <div className="row">
           {loading ? (
-            <h1>Loading...</h1>
+            <Spinner />
           ) : (
             news.map((article, index) => {
               return (
