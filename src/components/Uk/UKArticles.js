@@ -6,14 +6,15 @@ class UKArticles extends Component {
   state = {
     news: [],
     pageSize: 20,
-    loading: true
+    loading: true,
+    country: "gb"
   };
 
   componentDidMount() {
-    const { pageSize } = this.state;
+    const { pageSize, country } = this.state;
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=gb&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
       )
       .then(res => {
         console.log(res.data.articles);
@@ -30,7 +31,12 @@ class UKArticles extends Component {
     return (
       <Fragment>
         <div className="row">
-          <h2 className="sub-heading top-lead">Top Stories in UK 🇬🇧</h2>
+          <h2 className="sub-heading top-lead">
+            Top Stories in UK{" "}
+            <span role="img" aria-labelledby="jsx-a11y/accessible-emoji">
+              🇬🇧
+            </span>
+          </h2>
         </div>
         <div className="row">
           {loading ? (
