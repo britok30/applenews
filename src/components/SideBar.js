@@ -32,6 +32,15 @@ const SideBar = () => {
           <Link to="/tech">Technology</Link>
         </li>
         <li>
+          <Link to="/uk">Apple News UK</Link>
+        </li>
+        <li>
+          <Link to="/can">Apple News Canada</Link>
+        </li>
+        <li>
+          <Link to="/aus">Apple News Australia</Link>
+        </li>
+        <li>
           <a
             className="twitter"
             target="_blank"

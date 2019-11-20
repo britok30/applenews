@@ -9,6 +9,10 @@ import SportsArts from "./Sports/SportsArts";
 import ScienceArts from "./Science/ScienceArts";
 import HealthArts from "./Health/HealthArts";
 import EntertainmentArts from "./Entertainment/EntertainmentArts";
+
+import UKArticles from "./Uk/UKArticles";
+import CANArticles from "./Can/CANArticles";
+import AUSArticles from "./Aus/AUSArticles";
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -39,6 +43,9 @@ class App extends Component {
                     path="/entertainment"
                     component={EntertainmentArts}
                   />
+                  <Route exact path="/uk" component={UKArticles} />
+                  <Route exact path="/can" component={CANArticles} />
+                  <Route exact path="/aus" component={AUSArticles} />
                 </Switch>
               </div>
               <Footer />
