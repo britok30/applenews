@@ -78,13 +78,4 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-// https://newsapi.org/v2/top-headlines?q=&API_KEY
 
-// <Link
-//   to="route"
-//   target="_blank"
-//   onClick={event => {
-//     event.preventDefault();
-//     window.open(this.makeHref("route"));
-//   }}
-// />;
