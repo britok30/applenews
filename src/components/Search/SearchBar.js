@@ -5,7 +5,7 @@ import axios from "axios";
 class SearchBar extends Component {
   state = {
     searchTerm: "",
-    pageSize: 20,
+    pageSize: 35,
     loading: true,
     news: []
   };

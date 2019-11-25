@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
@@ -8,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ">
       <Link className="navbar-brand" to="/">
-        <img className="logo" src={logo} alt="" />
+        <i className="logo ion-logo-apple"></i>
         News<span className="js">.js</span>
         <p className="date">{date}</p>
       </Link>

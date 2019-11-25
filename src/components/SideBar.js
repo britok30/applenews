@@ -6,7 +6,7 @@ const SideBar = () => {
     <div>
       <h3 className="newshead">
         <Link to="/">
-          <i class="icon ion-logo-apple"></i> Apple News
+          <i className="icon ion-logo-apple"></i> Apple News
         </Link>
       </h3>
       <ul>
@@ -40,6 +40,13 @@ const SideBar = () => {
         <li>
           <Link to="/aus">Apple News Australia</Link>
         </li>
+        <h3 className="newshead">Favorites</h3>
+        <li>
+          <Link to="/nyt">NY Times</Link>
+        </li>
+        <li>
+          <Link to="/wsj">Wall Street Journal</Link>
+        </li>
         <li>
           <a
             className="twitter"
@@ -47,7 +54,7 @@ const SideBar = () => {
             rel="noreferrer noopener"
             href="https://twitter.com/AppleNews?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
           >
-            <i class="icon ion-logo-twitter"></i> Twitter
+            <i className="icon ion-logo-twitter"></i> Twitter
           </a>
         </li>
         <li>
@@ -57,7 +64,7 @@ const SideBar = () => {
             rel="noreferrer noopener"
             href="https://newsapi.org/"
           >
-            <i class="icon ion-logo-designernews"></i> News API
+            <i className="icon ion-logo-designernews"></i> News API
           </a>
         </li>
       </ul>

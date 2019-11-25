@@ -5,7 +5,7 @@ import axios from "axios";
 class BusinessArts extends Component {
   state = {
     news: [],
-    pageSize: 20,
+    pageSize: 25,
     loading: true,
     category: "business"
   };
