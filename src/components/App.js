@@ -13,6 +13,8 @@ import EntertainmentArts from "./Entertainment/EntertainmentArts";
 import UKArticles from "./Uk/UKArticles";
 import CANArticles from "./Can/CANArticles";
 import AUSArticles from "./Aus/AUSArticles";
+import NewYorkArticles from "./NewYorkTimes/NewYorkArticles";
+import WallStreetArticles from "./WSJ/WallStreetArticles";
 
 import NotFound from "./NotFound";
 import Footer from "./Footer";
@@ -48,6 +50,9 @@ class App extends Component {
                   <Route exact path="/uk" component={UKArticles} />
                   <Route exact path="/can" component={CANArticles} />
                   <Route exact path="/aus" component={AUSArticles} />
+                  <Route exact path="/nyt" component={NewYorkArticles} />
+                  <Route exact path="/wsj" component={WallStreetArticles} />
+
                   <Route component={NotFound} />
                 </Switch>
               </div>

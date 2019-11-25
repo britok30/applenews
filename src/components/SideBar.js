@@ -48,6 +48,12 @@ const SideBar = () => {
           <Link to="/wsj">Wall Street Journal</Link>
         </li>
         <li>
+          <Link to="/bbc">BBC-News</Link>
+        </li>
+        <li>
+          <Link to="/tc">TechCrunch</Link>
+        </li>
+        <li>
           <a
             className="twitter"
             target="_blank"
