@@ -15,6 +15,8 @@ import CANArticles from "./Can/CANArticles";
 import AUSArticles from "./Aus/AUSArticles";
 import NewYorkArticles from "./NewYorkTimes/NewYorkArticles";
 import WallStreetArticles from "./WSJ/WallStreetArticles";
+import BBCArticles from "./BBCNews/BBCArticles";
+import TechCrunchArticles from "./TechCrunch/TechCrunchArticles";
 
 import NotFound from "./NotFound";
 import Footer from "./Footer";
@@ -52,6 +54,8 @@ class App extends Component {
                   <Route exact path="/aus" component={AUSArticles} />
                   <Route exact path="/nyt" component={NewYorkArticles} />
                   <Route exact path="/wsj" component={WallStreetArticles} />
+                  <Route exact path="/bbc" component={BBCArticles} />
+                  <Route exact path="/tc" component={TechCrunchArticles} />
 
                   <Route component={NotFound} />
                 </Switch>
