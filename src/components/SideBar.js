@@ -11,7 +11,7 @@ const SideBar = () => {
       </h3>
       <ul>
         <li>
-          <Link to="/search">Search News</Link>
+          <Link to="/search" className="searchnews">Search News</Link>
         </li>
         <li>
           <Link to="/business">Business</Link>
