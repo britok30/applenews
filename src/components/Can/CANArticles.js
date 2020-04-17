@@ -38,7 +38,7 @@ class CANArticles extends Component {
             </span>
           </h2>
         </div>
-        <div className="row">
+        <div className="card-columns">
           {loading ? (
             <h1>Loading...</h1>
           ) : (

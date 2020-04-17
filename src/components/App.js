@@ -13,7 +13,7 @@ import EntertainmentArts from "./Entertainment/EntertainmentArts";
 import UKArticles from "./Uk/UKArticles";
 import CANArticles from "./Can/CANArticles";
 import AUSArticles from "./Aus/AUSArticles";
-import NewYorkArticles from "./NewYorkTimes/NewYorkArticles";
+import BleacherReportArticles from "./BleacherReport/BleacherReportArticles.js";
 import WallStreetArticles from "./WSJ/WallStreetArticles";
 import BBCArticles from "./BBCNews/BBCArticles";
 import TechCrunchArticles from "./TechCrunch/TechCrunchArticles";
@@ -52,7 +52,7 @@ class App extends Component {
                   <Route exact path="/uk" component={UKArticles} />
                   <Route exact path="/can" component={CANArticles} />
                   <Route exact path="/aus" component={AUSArticles} />
-                  <Route exact path="/nyt" component={NewYorkArticles} />
+                  <Route exact path="/bra" component={BleacherReportArticles} />
                   <Route exact path="/wsj" component={WallStreetArticles} />
                   <Route exact path="/bbc" component={BBCArticles} />
                   <Route exact path="/tc" component={TechCrunchArticles} />

@@ -33,7 +33,7 @@ class TechArts extends Component {
         <div className="row">
           <h2 className="sub-heading top-lead">Technology</h2>
         </div>
-        <div className="row">
+        <div className="card-columns">
           {loading ? (
             <h1>Loading...</h1>
           ) : (

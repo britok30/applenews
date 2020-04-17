@@ -42,7 +42,7 @@ const SideBar = () => {
         </li>
         <h3 className="newshead">Favorites</h3>
         <li>
-          <Link to="/nyt">NY Times</Link>
+          <Link to="/bra">Bleacher Report</Link>
         </li>
         <li>
           <Link to="/wsj">Wall Street Journal</Link>

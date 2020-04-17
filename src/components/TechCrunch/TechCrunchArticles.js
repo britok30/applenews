@@ -33,7 +33,7 @@ class TechCrunchArticles extends Component {
         <div className="row">
           <h2 className="sub-heading top-lead">TechCrunch</h2>
         </div>
-        <div className="row">
+        <div className="card-columns">
           {loading ? (
             <h1>Loading...</h1>
           ) : (

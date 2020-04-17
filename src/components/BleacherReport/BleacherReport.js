@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import news from "../../img/news.png";
 
-const CANArticle = (props) => {
+const BleacherReport = (props) => {
     const { title, link, img, desc, source } = props;
     return (
         <Fragment>
@@ -29,4 +29,4 @@ const CANArticle = (props) => {
     );
 };
 
-export default CANArticle;
+export default BleacherReport;

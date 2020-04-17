@@ -1,19 +1,20 @@
 import React, { Component, Fragment } from "react";
-import Article from "./Article";
+import BleacherReport from "./BleacherReport";
 import axios from "axios";
 
-class Articles extends Component {
+class BleacherReportArticles extends Component {
     state = {
         news: [],
-        pageSize: 36,
+        pageSize: 25,
         loading: true,
+        source: "bleacher-report",
     };
 
     componentDidMount() {
-        const { pageSize } = this.state;
+        const { pageSize, source } = this.state;
         axios
             .get(
-                `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
+                `https://newsapi.org/v2/top-headlines?sources=${source}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
             )
             .then((res) => {
                 console.log(res.data.articles);
@@ -30,7 +31,7 @@ class Articles extends Component {
         return (
             <Fragment>
                 <div className="row">
-                    <h2 className="sub-heading top-lead">Top Stories</h2>
+                    <h2 className="sub-heading top-lead">Bleacher Report</h2>
                 </div>
                 <div className="card-columns">
                     {loading ? (
@@ -38,7 +39,7 @@ class Articles extends Component {
                     ) : (
                         news.map((article, index) => {
                             return (
-                                <Article
+                                <BleacherReport
                                     key={index}
                                     title={article.title}
                                     link={article.url}
@@ -55,4 +56,4 @@ class Articles extends Component {
     }
 }
 
-export default Articles;
+export default BleacherReportArticles;
