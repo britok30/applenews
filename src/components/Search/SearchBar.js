@@ -54,7 +54,7 @@ class SearchBar extends Component {
           </div>
           <div className="card-columns">
             {loading ? (
-              <h1>Please enter your search</h1>
+              <h2>Please enter your search.</h2>
             ) : (
               news.map((article, index) => {
                 return (
