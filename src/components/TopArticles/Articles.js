@@ -13,7 +13,7 @@ class Articles extends Component {
         const { pageSize } = this.state;
         axios
             .get(
-                `https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
+                `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=us&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
             )
             .then((res) => {
                 console.log(res.data.articles);

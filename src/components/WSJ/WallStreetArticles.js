@@ -13,17 +13,17 @@ class WallStreetArticles extends Component {
   componentDidMount() {
     const { pageSize, source } = this.state;
     axios
-      .get(
-        `https://newsapi.org/v2/top-headlines?sources=${source}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
-      )
-      .then(res => {
-        console.log(res.data.articles);
-        this.setState({
-          news: res.data.articles,
-          loading: false
-        });
-      })
-      .catch(err => console.log(err));
+        .get(
+            `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?sources=${source}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
+        )
+        .then((res) => {
+            console.log(res.data.articles);
+            this.setState({
+                news: res.data.articles,
+                loading: false,
+            });
+        })
+        .catch((err) => console.log(err));
   }
 
   render() {

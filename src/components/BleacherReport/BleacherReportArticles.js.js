@@ -14,7 +14,7 @@ class BleacherReportArticles extends Component {
         const { pageSize, source } = this.state;
         axios
             .get(
-                `https://newsapi.org/v2/top-headlines?sources=${source}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
+                `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?sources=${source}&pageSize=${pageSize}&apiKey=${process.env.REACT_APP_API_KEY}`
             )
             .then((res) => {
                 console.log(res.data.articles);

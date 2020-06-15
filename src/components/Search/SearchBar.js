@@ -15,17 +15,17 @@ class SearchBar extends Component {
 
     const { pageSize, searchTerm } = this.state;
     axios
-      .get(
-        `https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
-      )
-      .then(res => {
-        console.log(res.data.articles);
-        this.setState({
-          news: res.data.articles,
-          loading: false
-        });
-      })
-      .catch(err => console.log(err));
+        .get(
+            `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${process.env.REACT_APP_API_KEY}&pageSize=${pageSize}`
+        )
+        .then((res) => {
+            console.log(res.data.articles);
+            this.setState({
+                news: res.data.articles,
+                loading: false,
+            });
+        })
+        .catch((err) => console.log(err));
   };
 
   onChange = e => {
