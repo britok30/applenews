@@ -1,17 +1,23 @@
 {
-  "name": "appnews",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "request": "^2.88.2"
-  }
+    "name": "appnews",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "client-install": "npm install --prefix client",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "server": "nodemon server.js",
+        "client": "npm start --prefix client",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }
