@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import Science from "./Science";
+import CANArticle from "./CANArticle";
 import axios from "axios";
 
-class ScienceArts extends Component {
+class CANArticles extends Component {
   state = {
     news: [],
     loading: true,
@@ -11,7 +11,7 @@ class ScienceArts extends Component {
   componentDidMount() {
     axios
         .get(
-            "/getScienceArts"
+            "/getCanadaArts"
         )
         .then((res) => {
             console.log(res.data.articles);
@@ -28,12 +28,20 @@ class ScienceArts extends Component {
     return (
         <Fragment>
             <div className="row">
-                <h2 className="sub-heading top-lead">Science</h2>
+                <h2 className="sub-heading top-lead">
+                    Top Stories in CAN{" "}
+                    <span
+                        role="img"
+                        aria-labelledby="jsx-a11y/accessible-emoji"
+                    >
+                        🇨🇦
+                    </span>
+                </h2>
             </div>
             <div className="card-columns">
                 {news && news.map((article, index) => {
                         return (
-                            <Science
+                            <CANArticle
                                 key={index}
                                 title={article.title}
                                 link={article.url}
@@ -50,4 +58,4 @@ class ScienceArts extends Component {
   }
 }
 
-export default ScienceArts;
+export default CANArticles;

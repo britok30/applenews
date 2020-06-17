@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import Tech from "./Tech";
+import WallStreet from "./WallStreet";
 import axios from "axios";
 
-class TechArts extends Component {
+class WallStreetArticles extends Component {
     state = {
         news: [],
         loading: true,
@@ -10,7 +10,7 @@ class TechArts extends Component {
 
     componentDidMount() {
         axios
-            .get("/getTechArts")
+            .get("/getWSJArts")
             .then((res) => {
                 console.log(res.data.articles);
                 this.setState({
@@ -26,12 +26,15 @@ class TechArts extends Component {
         return (
             <Fragment>
                 <div className="row">
-                    <h2 className="sub-heading top-lead">Technology</h2>
+                    <h2 className="sub-heading top-lead">
+                        Wall Street Journal
+                    </h2>
                 </div>
                 <div className="card-columns">
-                    {news && news.map((article, index) => {
+                    {news &&
+                        news.map((article, index) => {
                             return (
-                                <Tech
+                                <WallStreet
                                     key={index}
                                     title={article.title}
                                     link={article.url}
@@ -40,12 +43,11 @@ class TechArts extends Component {
                                     source={article.source.name}
                                 />
                             );
-                        })
-                    }
+                        })}
                 </div>
             </Fragment>
         );
     }
 }
 
-export default TechArts;
+export default WallStreetArticles;

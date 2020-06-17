@@ -35,7 +35,7 @@ class SportsArts extends Component {
                                     key={index}
                                     title={article.title}
                                     link={article.url}
-                                    img={article.image}
+                                    img={article.urlToImage}
                                     desc={article.description}
                                     source={article.source.name}
                                 />
