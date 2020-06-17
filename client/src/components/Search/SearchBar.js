@@ -37,7 +37,11 @@ class SearchBar extends Component {
 
         return (
             <Fragment>
-                <form className="form" onSubmit={this.onSubmit}>
+                <form
+                    className="form"
+                    onSubmit={this.onSubmit}
+                    autocomplete="off"
+                >
                     <div className="form-group">
                         <input
                             className="search"
@@ -53,7 +57,8 @@ class SearchBar extends Component {
                         <h2 className="sub-heading top-lead">Search</h2>
                     </div>
                     <div className="card-columns">
-                        {news && news.map((article, index) => {
+                        {news &&
+                            news.map((article, index) => {
                                 return (
                                     <Search
                                         key={index}
@@ -64,8 +69,7 @@ class SearchBar extends Component {
                                         source={article.source.name}
                                     />
                                 );
-                            })
-                        }
+                            })}
                     </div>
                 </form>
             </Fragment>
