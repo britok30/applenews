@@ -29,7 +29,7 @@ class TechArts extends Component {
                     <h2 className="sub-heading top-lead">Technology</h2>
                 </div>
                 <div className="card-columns">
-                    {loading ? (
+                    {loading && !news ? (
                         <h1>Loading...</h1>
                     ) : (
                         news.map((article, index) => {

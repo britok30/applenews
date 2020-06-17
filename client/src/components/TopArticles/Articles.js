@@ -31,7 +31,7 @@ class Articles extends Component {
                     <h2 className="sub-heading top-lead">Top Stories</h2>
                 </div>
                 <div className="card-columns">
-                    {loading ? (
+                    {loading && !news ? (
                         <h1>Loading...</h1>
                     ) : (
                         news.map((article, index) => {

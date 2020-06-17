@@ -53,7 +53,7 @@ class SearchBar extends Component {
                         <h2 className="sub-heading top-lead">Search</h2>
                     </div>
                     <div className="card-columns">
-                        {loading && news.length === 0 ? (
+                        {loading && !news ? (
                             <h2>Please enter your search.</h2>
                         ) : (
                             news.map((article, index) => {
