@@ -10,9 +10,7 @@ class Articles extends Component {
 
     componentDidMount() {
         axios
-            .get(
-                "/getTopArticles"
-            )
+            .get("/getTopArticles")
             .then((res) => {
                 console.log(res.data.articles);
                 this.setState({
@@ -24,16 +22,14 @@ class Articles extends Component {
     }
 
     render() {
-        const { loading, news } = this.state;
+        const { news } = this.state;
         return (
             <Fragment>
                 <div className="row">
                     <h2 className="sub-heading top-lead">Top Stories</h2>
                 </div>
                 <div className="card-columns">
-                    {loading && !news ? (
-                        <h1>Loading...</h1>
-                    ) : (
+                    {news &&
                         news.map((article, index) => {
                             return (
                                 <Article
@@ -45,8 +41,7 @@ class Articles extends Component {
                                     source={article.source.name}
                                 />
                             );
-                        })
-                    )}
+                        })}
                 </div>
             </Fragment>
         );
