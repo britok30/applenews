@@ -22,17 +22,14 @@ class TechCrunchArticles extends Component {
     }
 
     render() {
-        const { loading, news } = this.state;
+        const { news } = this.state;
         return (
             <Fragment>
                 <div className="row">
                     <h2 className="sub-heading top-lead">TechCrunch</h2>
                 </div>
                 <div className="card-columns">
-                    {loading && !news ? (
-                        <h1>Loading...</h1>
-                    ) : (
-                        news.map((article, index) => {
+                    {news && news.map((article, index) => {
                             return (
                                 <TechCrunch
                                     key={index}
@@ -44,7 +41,7 @@ class TechCrunchArticles extends Component {
                                 />
                             );
                         })
-                    )}
+                    }
                 </div>
             </Fragment>
         );

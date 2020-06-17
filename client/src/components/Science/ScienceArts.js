@@ -24,17 +24,14 @@ class ScienceArts extends Component {
   }
 
   render() {
-    const { loading, news } = this.state;
+    const { news } = this.state;
     return (
         <Fragment>
             <div className="row">
                 <h2 className="sub-heading top-lead">Science</h2>
             </div>
             <div className="card-columns">
-                {loading && !news ? (
-                    <h1>Loading...</h1>
-                ) : (
-                    news.map((article, index) => {
+                {news && news.map((article, index) => {
                         return (
                             <Science
                                 key={index}
@@ -46,7 +43,7 @@ class ScienceArts extends Component {
                             />
                         );
                     })
-                )}
+                }
             </div>
         </Fragment>
     );

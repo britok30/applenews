@@ -22,7 +22,7 @@ class WallStreetArticles extends Component {
     }
 
     render() {
-        const { loading, news } = this.state;
+        const { news } = this.state;
         return (
             <Fragment>
                 <div className="row">
@@ -31,9 +31,7 @@ class WallStreetArticles extends Component {
                     </h2>
                 </div>
                 <div className="card-columns">
-                    {loading ? (
-                        <h1>Loading...</h1>
-                    ) : (
+                    {news &&
                         news.map((article, index) => {
                             return (
                                 <WallStreet
@@ -45,8 +43,7 @@ class WallStreetArticles extends Component {
                                     source={article.source.name}
                                 />
                             );
-                        })
-                    )}
+                        })}
                 </div>
             </Fragment>
         );

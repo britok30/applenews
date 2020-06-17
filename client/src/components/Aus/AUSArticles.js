@@ -22,7 +22,7 @@ class AUSArticles extends Component {
     }
 
     render() {
-        const { loading, news } = this.state;
+        const { news } = this.state;
         return (
             <Fragment>
                 <div className="row">
@@ -37,10 +37,7 @@ class AUSArticles extends Component {
                     </h2>
                 </div>
                 <div className="card-columns">
-                    {loading && !news ? (
-                        <h1>Loading...</h1>
-                    ) : (
-                        news.map((article, index) => {
+                    {news && news.map((article, index) => {
                             return (
                                 <AUSArticle
                                     key={index}
@@ -52,7 +49,7 @@ class AUSArticles extends Component {
                                 />
                             );
                         })
-                    )}
+                    }
                 </div>
             </Fragment>
         );
