@@ -35,7 +35,7 @@ class BusinessArts extends Component {
                                     key={index}
                                     title={article.title}
                                     link={article.url}
-                                    img={article.urlToImage}
+                                    img={article.image}
                                     desc={article.description}
                                     source={article.source.name}
                                 />
