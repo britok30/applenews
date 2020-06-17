@@ -15,7 +15,6 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 5000;
 
-app.get("/", (req, res) => res.send("Hello World"));
 
 // Top Art
 app.get("/getTopArticles", (req, res) => {
