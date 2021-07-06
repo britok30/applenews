@@ -1,53 +1,52 @@
-import React, { Component, Fragment } from "react";
-import Entertainment from "./Entertainment";
-import axios from "axios";
+import React, { useState, useEffect, Suspense } from 'react';
+import Card from '../Card';
+import Header from '../Header';
+import axios from 'axios';
 
-class EntertainmentArts extends Component {
-  state = {
-    news: [],
-    loading: true,
-  };
+const EntertainmentArts = () => {
+    const [news, setNews] = useState([]);
 
-  componentDidMount() {
-    axios
-        .get(
-            "/getEntertainmentArts"
-        )
-        .then((res) => {
-            console.log(res.data.articles);
-            this.setState({
-                news: res.data.articles,
-                loading: false,
-            });
-        })
-        .catch((err) => console.log(err));
-  }
+    useEffect(() => {
+        axios
+            .get('/getEntertainmentArts')
+            .then((res) => {
+                setNews(res.data.articles);
+            })
+            .catch((err) => console.log(err));
+    }, []);
 
-  render() {
-    const { news } = this.state;
     return (
-        <Fragment>
+        <div>
             <div className="row">
-                <h2 className="sub-heading top-lead">Entertainment</h2>
+                <Header title="Entertainment" />
             </div>
             <div className="card-columns">
-                {news && news.map((article, index) => {
+                {news &&
+                    news.map((article, index) => {
                         return (
-                            <Entertainment
+                            <Suspense
                                 key={index}
-                                title={article.title}
-                                link={article.url}
-                                img={article.urlToImage}
-                                desc={article.description}
-                                source={article.source.name}
-                            />
+                                fallback={
+                                    <h1 style={{ color: '#fff' }}>
+                                        Loading news...
+                                    </h1>
+                                }
+                            >
+                                <Card
+                                    key={index}
+                                    title={article.title}
+                                    link={article.url}
+                                    img={article.urlToImage}
+                                    desc={article.description}
+                                    source={article.source.name}
+                                    buttonText="News Article"
+                                />
+                            </Suspense>
                         );
-                    })
-                }
+                    })}
             </div>
-        </Fragment>
+        </div>
     );
-  }
-}
+};
 
 export default EntertainmentArts;

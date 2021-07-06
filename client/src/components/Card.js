@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
-import news from "../../img/news.png";
+import React from 'react';
+import news from '../img/news.png';
 
-const CANArticle = (props) => {
-    const { title, link, img, desc, source } = props;
+const Card = ({ title, link, img, desc, source, buttonText }) => {
     return (
-        <Fragment>
+        <div>
             <div className="card">
                 <img
                     src={!img ? news : img}
@@ -20,13 +19,13 @@ const CANArticle = (props) => {
                         rel="noreferrer noopener"
                         className="btn btn-primary article-btn"
                     >
-                        News Article
+                        {buttonText}
                     </a>
                     <p className="source">Source: {source}</p>
                 </div>
             </div>
-        </Fragment>
+        </div>
     );
 };
 
-export default CANArticle;
+export default Card;

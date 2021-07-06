@@ -1,59 +1,52 @@
-import React, { Component, Fragment } from "react";
-import AUSArticle from "./AUSArticle";
-import axios from "axios";
+import React, { useState, useEffect, Suspense } from 'react';
+import Card from '../Card';
+import Header from '../Header';
+import axios from 'axios';
 
-class AUSArticles extends Component {
-    state = {
-        news: [],
-        loading: true,
-    };
+const AUSArticles = () => {
+    const [news, setNews] = useState([]);
 
-    componentDidMount() {
+    useEffect(() => {
         axios
-            .get("/getAustraliaArts")
+            .get('/getAustraliaArts')
             .then((res) => {
-                console.log(res.data.articles);
-                this.setState({
-                    news: res.data.articles,
-                    loading: false,
-                });
+                setNews(res.data.articles);
             })
             .catch((err) => console.log(err));
-    }
+    }, []);
 
-    render() {
-        const { news } = this.state;
-        return (
-            <Fragment>
-                <div className="row">
-                    <h2 className="sub-heading top-lead">
-                        Top Stories in AUS{" "}
-                        <span
-                            role="img"
-                            aria-labelledby="jsx-a11y/accessible-emoji"
-                        >
-                            🇦🇺
-                        </span>
-                    </h2>
-                </div>
-                <div className="card-columns">
-                    {news && news.map((article, index) => {
-                            return (
-                                <AUSArticle
+    return (
+        <div>
+            <div className="row">
+                <Header title="Top Stories in AUS" emoji="🇦🇺" />
+            </div>
+            <div className="card-columns">
+                {news &&
+                    news.map((article, index) => {
+                        return (
+                            <Suspense
+                                key={index}
+                                fallback={
+                                    <h1 style={{ color: '#fff' }}>
+                                        Loading news...
+                                    </h1>
+                                }
+                            >
+                                <Card
                                     key={index}
                                     title={article.title}
                                     link={article.url}
                                     img={article.urlToImage}
                                     desc={article.description}
                                     source={article.source.name}
+                                    buttonText="News Article"
                                 />
-                            );
-                        })
-                    }
-                </div>
-            </Fragment>
-        );
-    }
-}
+                            </Suspense>
+                        );
+                    })}
+            </div>
+        </div>
+    );
+};
 
 export default AUSArticles;

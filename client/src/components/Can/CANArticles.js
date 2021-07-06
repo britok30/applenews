@@ -1,61 +1,52 @@
-import React, { Component, Fragment } from "react";
-import CANArticle from "./CANArticle";
-import axios from "axios";
+import React, { useState, useEffect, Suspense } from 'react';
+import Card from '../Card';
+import Header from '../Header';
+import axios from 'axios';
 
-class CANArticles extends Component {
-  state = {
-    news: [],
-    loading: true,
-  };
+const CANArticles = () => {
+    const [news, setNews] = useState([]);
 
-  componentDidMount() {
-    axios
-        .get(
-            "/getCanadaArts"
-        )
-        .then((res) => {
-            console.log(res.data.articles);
-            this.setState({
-                news: res.data.articles,
-                loading: false,
-            });
-        })
-        .catch((err) => console.log(err));
-  }
+    useEffect(() => {
+        axios
+            .get('/getCanadaArts')
+            .then((res) => {
+                setNews(res.data.articles);
+            })
+            .catch((err) => console.log(err));
+    }, []);
 
-  render() {
-    const { news } = this.state;
     return (
-        <Fragment>
+        <div>
             <div className="row">
-                <h2 className="sub-heading top-lead">
-                    Top Stories in CAN{" "}
-                    <span
-                        role="img"
-                        aria-labelledby="jsx-a11y/accessible-emoji"
-                    >
-                        🇨🇦
-                    </span>
-                </h2>
+                <Header title="Top Stories in CAN" emoji="🇨🇦" />
             </div>
             <div className="card-columns">
-                {news && news.map((article, index) => {
+                {news &&
+                    news.map((article, index) => {
                         return (
-                            <CANArticle
+                            <Suspense
                                 key={index}
-                                title={article.title}
-                                link={article.url}
-                                img={article.urlToImage}
-                                desc={article.description}
-                                source={article.source.name}
-                            />
+                                fallback={
+                                    <h1 style={{ color: '#fff' }}>
+                                        Loading news...
+                                    </h1>
+                                }
+                            >
+                                <Card
+                                    key={index}
+                                    title={article.title}
+                                    link={article.url}
+                                    img={article.urlToImage}
+                                    desc={article.description}
+                                    source={article.source.name}
+                                    buttonText="News Article"
+                                />
+                            </Suspense>
                         );
-                    })
-                }
+                    })}
             </div>
-        </Fragment>
+        </div>
     );
-  }
-}
+};
 
 export default CANArticles;

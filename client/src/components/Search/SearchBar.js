@@ -1,80 +1,70 @@
-import React, { Component, Fragment } from "react";
-import Search from "./Search";
-import axios from "axios";
+import React, { useState, Suspense } from 'react';
+import Card from '../Card';
+import Header from '../Header';
+import axios from 'axios';
 
-class SearchBar extends Component {
-    state = {
-        searchTerm: "",
-        pageSize: 20,
-        loading: true,
-        news: [],
-    };
+const SearchBar = () => {
+    const [news, setNews] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
 
-        const { searchTerm } = this.state;
         axios
             .get(
-                `https://gnews.io/api/v3/search?q=${searchTerm}&token=693dfadc0ec318b62ae2455f3db67390`
+                `https://gnews.io/api/v4/search?q=${searchTerm}&token=693dfadc0ec318b62ae2455f3db67390`
             )
             .then((res) => {
-                console.log(res.data.articles);
-                this.setState({
-                    news: res.data.articles,
-                    loading: false,
-                });
+                setNews(res.data.articles);
             })
             .catch((err) => console.log(err));
     };
 
-    onChange = (e) => {
-        this.setState({ searchTerm: e.target.value });
-    };
+    return (
+        <div>
+            <form className="form" onSubmit={onSubmit} autocomplete="off">
+                <div className="form-group">
+                    <input
+                        className="search"
+                        type="text"
+                        name="name"
+                        value={searchTerm}
+                        placeholder="Search News"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
 
-    render() {
-        const { news } = this.state;
-
-        return (
-            <Fragment>
-                <form
-                    className="form"
-                    onSubmit={this.onSubmit}
-                    autocomplete="off"
-                >
-                    <div className="form-group">
-                        <input
-                            className="search"
-                            type="text"
-                            name="name"
-                            value={this.state.searchTerm}
-                            placeholder="Search News"
-                            onChange={this.onChange}
-                        />
-                    </div>
-
-                    <div className="row">
-                        <h2 className="sub-heading top-lead">Search</h2>
-                    </div>
-                    <div className="card-columns">
-                        {news &&
-                            news.map((article, index) => {
-                                return (
-                                    <Search
+                <div className="row">
+                    <Header title="Search" />
+                </div>
+                <div className="card-columns">
+                    {news &&
+                        news.map((article, index) => {
+                            return (
+                                <Suspense
+                                    key={index}
+                                    fallback={
+                                        <h1 style={{ color: '#fff' }}>
+                                            Loading news...
+                                        </h1>
+                                    }
+                                >
+                                    <Card
                                         key={index}
                                         title={article.title}
                                         link={article.url}
                                         img={article.image}
                                         desc={article.description}
                                         source={article.source.name}
+                                        buttonText="News Article"
                                     />
-                                );
-                            })}
-                    </div>
-                </form>
-            </Fragment>
-        );
-    }
-}
+                                </Suspense>
+                            );
+                        })}
+                </div>
+            </form>
+        </div>
+    );
+};
 
 export default SearchBar;

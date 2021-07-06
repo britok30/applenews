@@ -1,53 +1,52 @@
-import React, { Component, Fragment } from "react";
-import Article from "./Article";
-import axios from "axios";
+import React, { useState, useEffect, Suspense } from 'react';
+import Card from '../Card';
+import Header from '../Header';
+import axios from 'axios';
 
-class Articles extends Component {
-    state = {
-        news: [],
-        loading: true,
-    };
+const Articles = () => {
+    const [news, setNews] = useState([]);
 
-    componentDidMount() {
+    useEffect(() => {
         axios
-            .get(
-                "/getTopArticles"
-            )
+            .get('/getTopArticles')
             .then((res) => {
-                console.log(res.data.articles);
-                this.setState({
-                    news: res.data.articles,
-                    loading: false,
-                });
+                setNews(res.data.articles);
             })
             .catch((err) => console.log(err));
-    }
+    }, []);
 
-    render() {
-        const { news } = this.state;
-        return (
-            <Fragment>
-                <div className="row">
-                    <h2 className="sub-heading top-lead">Top Stories</h2>
-                </div>
-                <div className="card-columns">
-                    {news && news.map((article, index) => {
-                            return (
-                                <Article
+    return (
+        <div>
+            <div className="row">
+                <Header title="Top Stories" />
+            </div>
+            <div className="card-columns">
+                {news &&
+                    news.map((article, index) => {
+                        return (
+                            <Suspense
+                                key={index}
+                                fallback={
+                                    <h1 style={{ color: '#fff' }}>
+                                        Loading news...
+                                    </h1>
+                                }
+                            >
+                                <Card
                                     key={index}
                                     title={article.title}
                                     link={article.url}
                                     img={article.urlToImage}
                                     desc={article.description}
                                     source={article.source.name}
+                                    buttonText="News Article"
                                 />
-                            );
-                        })
-                    }
-                </div>
-            </Fragment>
-        );
-    }
-}
+                            </Suspense>
+                        );
+                    })}
+            </div>
+        </div>
+    );
+};
 
 export default Articles;
