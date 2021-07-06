@@ -22,7 +22,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <form className="form" onSubmit={onSubmit} autocomplete="off">
+            <form className="form" onSubmit={onSubmit} autoComplete="off">
                 <div className="form-group">
                     <input
                         className="search"
