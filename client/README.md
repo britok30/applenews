@@ -1,3 +1,11 @@
+## Apple News.JS
+
+This is my Apple News Clone made with React, using the News API. Just a quick note, News API made some recent changes to their pricing plan tiers, so unfortunately, the data I'm using from them can only be viewed locally. No worries, you can easily get things rolling by downloading the project locally from my repo.
+
+1. Run 'npm run start' from project directory in the client folder, and the project will be under "locahost:3000"
+2. Run 'npm run server' to run the server from root directory
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
